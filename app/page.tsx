@@ -67,8 +67,13 @@ const Home: React.FC = () => {
         onChange={(e) => setSearchTerm(e.target.value)}
         className="mb-4  p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 w-full max-w-lg transition-all duration-300"
       />
-      {users.length === 0 ? <p className="text-sm pt-5">No users found for {debouncedSearchTerm}.</p> : <UserList users={users} />}
-     
+      {users.length === 0 ? (
+        <p className="text-sm pt-5">
+          No users found for {debouncedSearchTerm}.
+        </p>
+      ) : (
+        <UserList users={users} />
+      )}
     </div>
   );
 };

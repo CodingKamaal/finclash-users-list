@@ -6,7 +6,7 @@ const UserList: React.FC<UserListProps> = ({ users }) => {
   console.log(users); 
   return (
     //user card
-    <div className="grid gap-4 w-full sm:grid-cols-1 duration-300 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 w-full grid-cols-1 duration-300 sm:grid-cols-2 lg:grid-cols-3">
       {users.map((user) => (
         <UserCard
           key={user.id}
