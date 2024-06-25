@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import UserList from "@/components/users/UserList";
 import { fetchUsers } from "../utils/api";
-import { useDebounce } from "@/hooks/use_debounce";
+import { useDebounce } from "use-debounce";
 
 const Home: React.FC = () => {
   // initlizing required states
@@ -10,13 +10,14 @@ const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const debouncedSearchTerm = useDebounce(searchTerm, 500);
+  const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
 
   // registering events on search term change
   useEffect(() => {
     const getUsers = async () => {
       try {
         const usersData = await fetchUsers(debouncedSearchTerm.toLowerCase());
+        console.log(usersData);
         setUsers(usersData);
       } catch (err) {
         setError("Failed to fetch users");
@@ -67,7 +68,7 @@ const Home: React.FC = () => {
         className="mb-4  p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 w-full max-w-lg transition-all duration-300"
       />
       {users.length === 0 ? <p className="text-sm pt-5">No users found for {debouncedSearchTerm}.</p> : <UserList users={users} />}
-      <UserList users={users} />
+     
     </div>
   );
 };
