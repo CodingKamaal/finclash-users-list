@@ -41,8 +41,8 @@ This is a small web application built with Next.js and TypeScript that displays 
 
 ## Author
 
-- [Your Name]
-- [Your Contact Information]
+- Ahmed Kamaal Faridee Khan
+- kamaal.khan@alphabi.co
 
 ## License
 
