@@ -5,3 +5,8 @@ interface User {
     username: string;
     email: string;
   }
+  
+  interface UserListProps {
+    users: User[];
+  }
+  
